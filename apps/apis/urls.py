@@ -18,6 +18,11 @@ from apps.apis.views.department_views import (
     DepartmentsDetail
 )
 
+from apps.apis.views.tag_definitions_views import (
+    TagDefinitionsListCreate,
+    TagDefinitionsDetail
+)
+
 urlpatterns = [
     # user authentication
     path("register/", RegisterView.as_view()),
@@ -35,4 +40,8 @@ urlpatterns = [
     # departments
     path("departments/", DepartmentsListCreate.as_view(), name="departments-list-create"),
     path("departments/<int:pk>/", DepartmentsDetail.as_view(), name="departments-detail"),
+
+    # tag definitions
+    path("tag-definitions/", TagDefinitionsListCreate.as_view(), name="tag-definitions-list-create"),
+    path("tag-definitions/<int:pk>/", TagDefinitionsDetail.as_view(), name="tag-definitions-detail"),
 ]

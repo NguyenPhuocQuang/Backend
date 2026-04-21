@@ -8,7 +8,7 @@ from apps.apis.models.tag_definition import TagDefinitions
 
 
 
-class TagDefinitionsListCreateAPIView(APIView):
+class TagDefinitionsListCreate(APIView):
     def get(self, request):
         data = TagDefinitions.objects.all()
         serializer = TagDefinitionsSerializer(data, many=True)
@@ -22,7 +22,7 @@ class TagDefinitionsListCreateAPIView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class TagDefinitionsDetailAPIView(APIView):
+class TagDefinitionsDetail(APIView):
     def get(self, request, pk):
         obj = get_object_or_404(TagDefinitions, pk=pk)
         serializer = TagDefinitionsSerializer(obj)
